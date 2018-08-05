@@ -5,7 +5,7 @@ module.exports = {
         playlistModel.findPlaylists()
         .then((playlists) => {
             console.log(playlists);
-            res.locals.data = playlists;
+            res.locals.playlists = playlists;
             next();
         })
         .catch((err) => {
@@ -17,7 +17,7 @@ module.exports = {
         playlistModel.findUsers()
         .then((users) => {
             console.log(users);
-            res.locals.data = users;
+            res.locals.users = users;
             next();
         })
         .catch(err => next(err));

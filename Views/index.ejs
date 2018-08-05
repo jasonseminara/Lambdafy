@@ -1,4 +1,19 @@
 <%- include('./Partials/htmlBoilerplateHead.ejs') %>
-<h1>Hello Kenny!</h1>
+<h1>Here are the users:</h1>
+<% users.forEach((users) => { %>
+    <h3>User ID: <%= users.id %></h3>
+    <h3>Username: <%= users.username %></h3>
+    <h3>Full Name: <%= users.full_name %></h3>
+    <h3>Account Created: <%= users.created_at %></h3>
+    <h3>Last Login: <%= users.last_on %></h3>
+<% }) %>
+
+<h1>Here are the playlists:</h1>
+<% playlists.forEach((playlists) => { %>
+    <h3>Playlist ID: <%= playlists.id %></h3>
+    <h3>Playlist Name: <%= playlists.playlist_name %></h3>
+    <h3>Spotify Playlist URI: <%= playlists.spotify_uri %></h3>
+    <h3>Created At: <%= playlists.created_at %></h3>
+<% }) %>
 
 <%- include('./Partials/htmlBoilerplateHead.ejs') %>

@@ -9,18 +9,18 @@ const playlistRouter = express.Router();
 // const playlistRouter = express();
 
 // Send messages
-// const showJSON = (req, res) => {
-//     res.json(res.locals.data);
-// };
+const showJSON = (req, res) => {
+    res.json(res.locals.data);
+};
 
 playlistRouter.get('/', (req, res) => {
     res.send('Hello World!');    
 });
 
 playlistRouter.route('/playlists')
-.get(playlistController.index, indexViewController.showAll);
+.get(playlistController.index, indexViewController.showAll, showJSON);
 
 playlistRouter.route('/users')
-.get(playlistController.index2, indexViewController.showAll);
+.get(playlistController.index, playlistController.index2, indexViewController.showAll, showJSON);
 
 module.exports = playlistRouter;

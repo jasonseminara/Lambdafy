@@ -7,7 +7,7 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(255) NOT NULL UNIQUE,
     full_name VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT NOW(),
+    created_at TIMESTAMP,
     last_on TIMESTAMP DEFAULT NOW()
 );
 
@@ -16,5 +16,5 @@ CREATE TABLE playlists (
     playlist_name VARCHAR(255) NOT NULL,
     spotify_uri VARCHAR(255) NOT NULL,
     users_username VARCHAR(255) REFERENCES users (username),
-    created_at TIMESTAMP DEFAULT NOW()
+    created_at TIMESTAMP
 );
