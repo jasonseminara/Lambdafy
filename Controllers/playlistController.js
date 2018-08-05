@@ -1,25 +1,28 @@
 const playlistModel = require('../Models/playlistModel');
 
 module.exports = {
-    index(req, res, next) {
-        playlistModel.findPlaylists()
+    getIndex(req, res, next) {
+        playlistModel.findAllPlaylists()
         .then((playlists) => {
             console.log(playlists);
             res.locals.playlists = playlists;
             next();
         })
         .catch((err) => {
+            console.log(err);
             next(err);
-            console.log(err);        
         });
     },
-    index2(req, res, next) {
-        playlistModel.findUsers()
-        .then((users) => {
-            console.log(users);
-            res.locals.users = users;
+    getOne(req, res, next) {
+        playlistModel.findOnePlaylist(req.params.id)
+        .then((playlist) => {
+            console.log(playlist);
+            res.locals.playlist = playlist;
             next();
         })
-        .catch(err => next(err));
+        .catch((err) => {
+            console.log(err);
+            next(err);            
+        });
     }
 };

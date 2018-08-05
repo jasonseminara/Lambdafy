@@ -1,14 +1,16 @@
 const db = require('../Config/dbConnection');
 
 module.exports = {
-    findPlaylists() {
+    findAllPlaylists() {
         return db.many(`
         SELECT * 
         FROM playlists`);
     },
-    findUsers() {
-        return db.many(`
+    findOnePlaylist(id) {
+        return db.one(`
         SELECT * 
-        FROM users`);
+        FROM playlists 
+        WHERE id = $1
+        `, id);
     }
 };

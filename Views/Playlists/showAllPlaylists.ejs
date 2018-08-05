@@ -1,0 +1,13 @@
+<%- include('../Partials/htmlBoilerplateHead.ejs') %>
+<title>Lambdify | Show All</title>
+</head>
+<body>
+<h2>Playlists / Show All</h2>
+<% playlists.forEach((playlists) => { %>
+    <h4>Playlist ID: </h4><p><%= playlists.id %></p>
+    <h4>Playlist Name: </h4><p><%= playlists.playlist_name %></p>
+    <h4>Spotify URI: </h4><p><%= playlists.spotify_uri %></p>
+    <h4>Create By: </h4><p><%= playlists.users_username %></p>
+    <h4>Created At: <%= playlists.created_at %></h4>
+<% }) %>
+<%- include('../Partials/htmlBoilerplateFoot.ejs')  %>

@@ -22,10 +22,10 @@ app.use(methodOverride('_method'));
 
 // Set view engine
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('Views', path.join(__dirname, 'Views'));
 
 // Use routes
-app.use('/', playlistRouter);
+app.use('/playlists', playlistRouter);
 
 // Listen on PORT
 app.listen(PORT, () => {

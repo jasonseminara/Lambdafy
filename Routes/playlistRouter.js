@@ -13,14 +13,16 @@ const showJSON = (req, res) => {
     res.json(res.locals.data);
 };
 
-playlistRouter.get('/', (req, res) => {
-    res.send('Hello World!');    
-});
+// playlistRouter.get('/', (req, res) => {
+//     res.send('Hello World!');    
+// });
 
-playlistRouter.route('/playlists')
-.get(playlistController.index, indexViewController.showAll, showJSON);
+// Item
+playlistRouter.route('/:id')
+.get(playlistController.getOne, indexViewController.showOne, showJSON);
 
-playlistRouter.route('/users')
-.get(playlistController.index, playlistController.index2, indexViewController.showAll, showJSON);
+// Collection
+playlistRouter.route('/')
+.get(playlistController.getIndex, indexViewController.showAll, showJSON);
 
 module.exports = playlistRouter;
