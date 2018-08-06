@@ -18,5 +18,15 @@ module.exports = {
                 res.json(res.locals.playlist);
             }
         });
+    },
+    create(req, res) {
+        res.format({
+            html() {
+                res.render('Playlists/createPlaylist');
+            },
+            json() {
+                res.json(res.locals.new);
+            }
+        });
     }
 };

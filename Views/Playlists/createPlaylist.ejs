@@ -1,0 +1,17 @@
+<%- include('../Partials/htmlBoilerplateHead.ejs') %>
+<title>Lambdify | Create Playlist</title>
+</head>
+<body>
+    <form action="/playlists" method="POST">
+        <h2>Create New Playlist</h2>
+        <label for="Playlist Name">
+            Playlist Name:
+            <input type="text" name="Playlist Name">
+        </label>
+        <label for="Spotify URI">
+            Spotify URI:
+            <input type="text" name="Spotify URI">
+        </label>
+        <button type="submit">Add Playlist</button>
+    </form>
+<%- include('../Partials/htmlBoilerplateFoot.ejs')  %>

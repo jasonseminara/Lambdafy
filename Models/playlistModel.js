@@ -9,8 +9,14 @@ module.exports = {
     findOnePlaylist(id) {
         return db.one(`
         SELECT * 
-        FROM playlists 
-        WHERE id = $1
+        FROM playlists  
+        WHERE playlistId = $1
         `, id);
+    },
+    insertPlaylist(playlist) {
+        return db.one(`
+        INSERT INTO playlists (playlist_name, spotify_uri) 
+        VALUES ($/playlist_name/, $/spotify_uri/) 
+        RETURNING *`, playlist);
     }
 };
