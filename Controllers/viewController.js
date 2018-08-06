@@ -39,10 +39,10 @@ module.exports = {
             }
         })
     },
-    delete(req, res) {
+    deleteMe(req, res) {
         res.format({
             html() {
-                res.render('Playlists/showAllPlaylists');
+                res.render('Playlists/deletePlaylist');
             },
             json() {
                 res.json(res.locals.deleted);

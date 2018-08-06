@@ -26,6 +26,28 @@ const redirectCreate = (req, res) => {
 //     res.send('Hello World!');    
 // });
 
+// Delete
+playlistRouter.route('/delete/:id')
+.get(
+    playlistController.getOne,
+    viewController.deleteMe,
+)
+.delete(
+    playlistController.destroyPlaylist,
+    viewController.deleteMe,
+)
+
+// Update
+playlistRouter.route('/edit/:id')
+.get(
+    playlistController.getOne,
+    viewController.update,
+)
+.put(
+    playlistController.updatePlaylist,
+    viewController.update,
+);
+
 // Create
 playlistRouter.route('/new')
 .get(
@@ -43,11 +65,6 @@ playlistRouter.route('/:id')
 .delete(
     playlistController.destroyPlaylist,
     viewController.delete,
-    showJSON,
-    redirect,
-)
-.put(
-    playlistController.updatePlaylist,
     showJSON,
     redirect,
 );

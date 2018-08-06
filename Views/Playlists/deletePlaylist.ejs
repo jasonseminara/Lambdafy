@@ -1,0 +1,13 @@
+<%- include('../Partials/htmlBoilerplateHead.ejs') %>
+<title>Lambdify | Delete Playlist</title>
+</head>
+<body>
+    <h2>Delete Playlist</h2>
+    <form action="/playlists/delete/<%= playlist.playlistId %>?_method=DELETE" method="POST">
+        <label for="playlist_name">Playlist Name:</label>
+        <input placeholder="Add Playlist Name" type="text" id="playlist_name" name="playlist_name" />
+        <label for="spotify_uri">Spotify URI:</label>
+        <input placeholder="Spotify URI Link" type="text" id="spotify_uri" name="spotify_uri" />
+        <input type="submit" value="Add Playlist" />
+    </form>
+<%- include('../Partials/htmlBoilerplateFoot.ejs') %>
