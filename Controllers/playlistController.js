@@ -38,12 +38,11 @@ module.exports = {
         });
     },
     updatePlaylist(req, res, next) {
-        const { id } = req.params;
-        const { playlistData } = req.body;
+        const { playlistId, playlist_name, spotify_uri } = req.body;
 
-        playlistModel.updatePlaylist(id, playlistData)
+        playlistModel.updatePlaylist({ playlistId, playlist_name, spotify_uri })
         .then(() => {
-            res.redirect('/playlists');
+            res.redirect(`/playlists/${playlistId}`);
             next();
         })
         .catch((err) => {
@@ -52,8 +51,7 @@ module.exports = {
         });
     },
     destroyPlaylist(req, res, next) {
-        const { id } = req.params;
-        playlistModel.removePlaylist(id)
+        playlistModel.removePlaylist(req.params.id)
         .then(() => {
             res.redirect('/playlists');
             next();

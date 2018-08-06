@@ -3,7 +3,9 @@
 </head>
 <body>
     <h2>Create Update Playlist</h2>
-    <form action="/playlists/edit/<%= playlist.playlistId %>?_method=PUT" method="POST">
+    <form action="/playlists/<%= playlist.playlistid %>?_method=PUT" method="POST">
+        <label for="playlistId">Playlist Id:</label>
+        <input placeholder="Add Playlist Name" type="text" id="playlistId" name="playlistId" />
         <label for="playlist_name">Playlist Name:</label>
         <input placeholder="Add Playlist Name" type="text" id="playlist_name" name="playlist_name" />
         <label for="spotify_uri">Spotify URI:</label>

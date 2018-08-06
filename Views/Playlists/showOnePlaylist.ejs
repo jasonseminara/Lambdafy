@@ -3,9 +3,9 @@
 </head>
 <body>
 <h2>Playlists / </h2><p><%= playlist.playlist_name %></p>
-<h4>Playlist ID: </h2><p><%= playlist.id %></p>
+<h4>Playlist ID: </h2><p><%= playlist.playlistid %></p>
 <h4>Playlist Name: </h2><p><%= playlist.playlist_name %></p>
 <h4>Spotify URI: </h2><p><%= playlist.spotify_uri %></p>
-<h4>Create By: </h4><p><%= playlist.users_username %></p>
+<h4>Create By: </h4><p><%= playlist.by_user %></p>
 <h4>Created At: </h2><p></p><%= playlist.created_at %></p>
 <%- include('../Partials/htmlBoilerplateFoot.ejs')  %>

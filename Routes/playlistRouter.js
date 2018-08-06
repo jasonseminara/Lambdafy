@@ -14,37 +14,29 @@ const showJSON = (req, res) => {
 };
 
 const redirect = (req, res) => {
-    res.redirect('/playlists');
+    res.redirect('http://localhost:3000/playlists');
 };
 
-const redirectCreate = (req, res) => {
-    const { playlist_name, spotify_uri } = res.locals.new;
-    res.redirect(`/playlists/${playlist_name, spotify_uri}`);
-};
 
 // playlistRouter.get('/', (req, res) => {
 //     res.send('Hello World!');    
 // });
 
 // Delete
-playlistRouter.route('/delete/:id')
-.get(
-    playlistController.getOne,
-    viewController.deleteMe,
-)
-.delete(
-    playlistController.destroyPlaylist,
-    viewController.deleteMe,
-)
+// playlistRouter.route('/delete/:id')
+// .get(
+//     playlistController.getOne,
+//     viewController.deleteMe,
+// )
+// .delete(
+//     playlistController.destroyPlaylist,
+//     viewController.deleteMe,
+// )
 
 // Update
-playlistRouter.route('/edit/:id')
+playlistRouter.route('/:id/edit')
 .get(
     playlistController.getOne,
-    viewController.update,
-)
-.put(
-    playlistController.updatePlaylist,
     viewController.update,
 );
 
@@ -53,6 +45,7 @@ playlistRouter.route('/new')
 .get(
     playlistController.getIndex,
     viewController.create,
+    showJSON,
 );
 
 // Item
@@ -62,12 +55,12 @@ playlistRouter.route('/:id')
     viewController.showOne,
     showJSON,
 )
-.delete(
-    playlistController.destroyPlaylist,
-    viewController.delete,
+.put(
+    playlistController.updatePlaylist,
+    viewController.update,
     showJSON,
-    redirect,
-);
+)
+.delete(playlistController.destroyPlaylist);
 
 // Collection
 playlistRouter.route('/')
@@ -79,7 +72,6 @@ playlistRouter.route('/')
 .post(
     playlistController.createPlaylist,
     viewController.create,
-    redirect,
 );
 
 module.exports = playlistRouter;
