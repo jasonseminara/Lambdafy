@@ -28,9 +28,8 @@ module.exports = {
     createPlaylist(req, res, next) {
         const { playlist_name, spotify_uri } = req.body;
         playlistModel.insertPlaylist({ playlist_name, spotify_uri })
-        .then((newPlaylist) => {
-            console.log(newPlaylist);
-            res.locals.new = newPlaylist;
+        .then(() => {
+            res.redirect('/playlists')
             next();
         })
         .catch((err) => {

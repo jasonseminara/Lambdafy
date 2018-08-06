@@ -4,10 +4,10 @@
 <body>
     <h2>Create New Playlist</h2>
     <form action="/playlists" method="POST">
-        <label for="playlistName">Playlist Name:</label>
-        <input value="<%= playlist.playlist_name %>" type="text" id="playlistName" />
-        <label for="spotifyUri">Spotify URI:</label>
-        <input value="<%= playlist.spotify_uri %>" type="text" id="spotifyUri" />
+        <label for="playlist_name">Playlist Name:</label>
+        <input placeholder="Add Playlist Name" type="text" id="playlist_name" name="playlist_name" />
+        <label for="spotify_uri">Spotify URI:</label>
+        <input placeholder="Spotify URI Link" type="text" id="spotify_uri" name="spotify_uri" />
         <input type="submit" value="Add Playlist" />
     </form>
-<%- include('../Partials/htmlBoilerplateFoot.ejs')  %>
+<%- include('../Partials/htmlBoilerplateFoot.ejs') %>

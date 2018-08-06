@@ -17,6 +17,11 @@ const redirect = (req, res) => {
     res.redirect('/playlists');
 };
 
+const redirectCreate = (req, res) => {
+    const { playlist_name, spotify_uri } = res.locals.new;
+    res.redirect(`/playlists/${playlist_name, spotify_uri}`);
+};
+
 // playlistRouter.get('/', (req, res) => {
 //     res.send('Hello World!');    
 // });
@@ -25,14 +30,7 @@ const redirect = (req, res) => {
 playlistRouter.route('/new')
 .get(
     playlistController.getIndex,
-    viewController.showAll,
-    showJSON,
-)
-.post(
-    playlistController.createPlaylist,
     viewController.create,
-    showJSON,
-    redirect,
 );
 
 // Item
@@ -60,6 +58,11 @@ playlistRouter.route('/')
     playlistController.getIndex,
     viewController.showAll,
     showJSON,
+)
+.post(
+    playlistController.createPlaylist,
+    viewController.create,
+    redirect,
 );
 
 module.exports = playlistRouter;
