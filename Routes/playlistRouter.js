@@ -33,6 +33,13 @@ const redirect = (req, res) => {
 //     viewController.deleteMe,
 // )
 
+// Delete
+playlistRouter.route('/:id/delete')
+.get(
+    playlistController.destroyPlaylist,
+    viewController.deleteMe,
+);
+
 // Update
 playlistRouter.route('/:id/edit')
 .get(

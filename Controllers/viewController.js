@@ -39,14 +39,14 @@ module.exports = {
             }
         })
     },
-    // deleteMe(req, res) {
-    //     res.format({
-    //         html() {
-    //             res.render('Playlists/deletePlaylist');
-    //         },
-    //         json() {
-    //             res.json(res.locals.deleted);
-    //         }
-    //     });
-    // }
+    deleteMe(req, res) {
+        res.format({
+            html() {
+                res.render('Playlists/deletePlaylist');
+            },
+            json() {
+                res.json(res.locals.deleted);
+            }
+        });
+    }
 };
