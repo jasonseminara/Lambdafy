@@ -2,16 +2,12 @@
 <title>Lambdify | Create Playlist</title>
 </head>
 <body>
+    <h2>Create New Playlist</h2>
     <form action="/playlists" method="POST">
-        <h2>Create New Playlist</h2>
-        <label for="Playlist Name">
-            Playlist Name:
-            <input type="text" name="Playlist Name">
-        </label>
-        <label for="Spotify URI">
-            Spotify URI:
-            <input type="text" name="Spotify URI">
-        </label>
-        <button type="submit">Add Playlist</button>
+        <label for="playlistName">Playlist Name:</label>
+        <input value="<%= playlist.playlist_name %>" type="text" id="playlistName" />
+        <label for="spotifyUri">Spotify URI:</label>
+        <input value="<%= playlist.spotify_uri %>" type="text" id="spotifyUri" />
+        <input type="submit" value="Add Playlist" />
     </form>
 <%- include('../Partials/htmlBoilerplateFoot.ejs')  %>

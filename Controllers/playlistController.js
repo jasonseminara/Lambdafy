@@ -37,5 +37,31 @@ module.exports = {
             console.log(err);            
             next(err);
         });
+    },
+    updatePlaylist(req, res, next) {
+        const { id } = req.params.id;
+        const playlistdata = req.body;
+
+        playlistModel.updatePlaylist(id, playlistdata)
+        .then((modifiedPlaylist) => {
+            res.locals.updated = modifiedPlaylist;
+            next();
+        })
+        .catch((err) => {
+            console.log(err);
+            next(err);
+        });
+    },
+    destroyPlaylist(req, res, next) {
+        playlistModel.removePlaylist(req.params.id)
+        .then((deletedPlaylist) => {
+            console.log(playlist);            
+            res.locals.deleted = deletedPlaylist;
+            next();
+        })
+        .catch((err) => {
+            console.log(err);
+            next(err);
+        });
     }
 };

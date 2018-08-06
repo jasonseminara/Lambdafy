@@ -28,5 +28,25 @@ module.exports = {
                 res.json(res.locals.new);
             }
         });
+    },
+    update(req, res) {
+        res.format({
+            html() {
+                res.render('Playlists/updatePlaylist');
+            },
+            json() {
+                res.json(res.locals.updated);
+            }
+        })
+    },
+    delete(req, res) {
+        res.format({
+            html() {
+                res.render('Playlists/showAllPlaylists');
+            },
+            json() {
+                res.json(res.locals.deleted);
+            }
+        });
     }
 };

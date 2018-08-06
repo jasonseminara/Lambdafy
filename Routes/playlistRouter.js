@@ -13,7 +13,7 @@ const showJSON = (req, res) => {
     res.json(res.locals.data);
 };
 
-const redirectCreate = (req, res) => {
+const redirect = (req, res) => {
     res.redirect('/playlists');
 };
 
@@ -23,15 +23,43 @@ const redirectCreate = (req, res) => {
 
 // Create
 playlistRouter.route('/new')
-.get(playlistController.getIndex, viewController.showAll, showJSON)
-.post(playlistController.createPlaylist, viewController.create, showJSON, redirectCreate);
+.get(
+    playlistController.getIndex,
+    viewController.showAll,
+    showJSON,
+)
+.post(
+    playlistController.createPlaylist,
+    viewController.create,
+    showJSON,
+    redirect,
+);
 
 // Item
 playlistRouter.route('/:id')
-.get(playlistController.getOne, viewController.showOne, showJSON);
+.get(
+    playlistController.getOne,
+    viewController.showOne,
+    showJSON,
+)
+.delete(
+    playlistController.destroyPlaylist,
+    viewController.delete,
+    showJSON,
+    redirect,
+)
+.put(
+    playlistController.updatePlaylist,
+    showJSON,
+    redirect,
+);
 
 // Collection
 playlistRouter.route('/')
-.get(playlistController.getIndex, viewController.showAll, showJSON);
+.get(
+    playlistController.getIndex,
+    viewController.showAll,
+    showJSON,
+);
 
 module.exports = playlistRouter;
