@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS users;
 DROP INDEX IF EXISTS users_userId;
 
 CREATE TABLE users (
-    userId SERIAL PRIMARY KEY NOT NULL ON DELETE CASCADE,
+    userId SERIAL PRIMARY KEY NOT NULL,
     username VARCHAR(255) NOT NULL UNIQUE,
     full_name VARCHAR(255) NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT NOW(),
@@ -20,10 +20,10 @@ CREATE TABLE users (
 CREATE INDEX users_userId ON users (userId);
 
 CREATE TABLE playlists (
-    playlistId SERIAL PRIMARY KEY NOT NULL ON DELETE CASCADE,
+    playlistId SERIAL PRIMARY KEY NOT NULL,
     playlist_name VARCHAR(255) NOT NULL,
     spotify_uri VARCHAR(255) NOT NULL,
-    by_user INTEGER REFERENCES users (userId) ON DELETE CASCADE,
+    by_user INTEGER REFERENCES users (userId),
     created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
 

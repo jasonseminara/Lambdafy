@@ -26,8 +26,8 @@ module.exports = {
         });
     },
     createPlaylist(req, res, next) {
-        const { playlist_name, spotify_uri } = req.body;
-        playlistModel.insertPlaylist({ playlist_name, spotify_uri })
+        const { playlist_name, spotify_uri, created_by } = req.body;
+        playlistModel.insertPlaylist({ playlist_name, spotify_uri, created_by })
         .then(() => {
             res.redirect('/playlists');
             next();
@@ -38,9 +38,9 @@ module.exports = {
         });
     },
     updatePlaylist(req, res, next) {
-        const { playlistId, playlist_name, spotify_uri } = req.body;
+        const { playlistId, playlist_name, spotify_uri, created_by } = req.body;
 
-        playlistModel.updatePlaylist({ playlistId, playlist_name, spotify_uri })
+        playlistModel.updatePlaylist({ playlistId, playlist_name, spotify_uri, created_by })
         .then(() => {
             res.redirect(`/playlists/${playlistId}`);
             next();

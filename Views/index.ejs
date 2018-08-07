@@ -1,7 +1,7 @@
 <%- include('./partials/htmlBoilerplateHead.ejs') %>
-    <title>λambdafy | Share Your Spotify Playlists - Built by Kendrick Z.</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="icon" href="lambdaFavicon.png" type="image/x-icon">
+    <title>λambdafy | Share Your Spotify Playlists - Built by Kendrick Z.</title>
 </head>
 <body>
     <div id="mainView">
@@ -17,13 +17,27 @@
             <% playlists.forEach((playlists) => { %>
                 <div class="playlistEntry">
                     <p class="playlistDetails">#<%= playlists.playlistid %></p>
-                    <p class="playlistDetails">Playlist Name: <%= playlists.playlist_name %></p>
+                    <p class="playlistDetails">Playlist Title: <%= playlists.playlist_name %></p>
                     <p class="playlistDetails">Link: <a href="<%= playlists.spotify_uri %>">Follow <%= playlists.playlist_name %> on Spotify</a></p>
                     <p class="playlistDetails">Created By: <%= playlists.by_user %></p>
                 </div>
             <% }) %>
         </div>
-        <div id="rightPane"></div>
+        <div id="rightPane">
+            <center>
+            <div class="formButtons">
+                <button class="buttonRUD" type="submit">
+                    <a href="http://localhost:3000/lambdafy/new">New Entry</a>
+                </button>
+                <button class="buttonRUD" type="submit">
+                    <a href="http://localhost:3000/lambdafy/edit">Update A Playlist</a>
+                </button>
+                <button class="buttonRUD" type="submit">
+                    <a href="http://localhost:3000/lambdafy/remove">Delete A Playlist</a>
+                </button>
+            </div>
+            </center>
+        </div>
         <div id="footer"></div>
     </div>
 <%- include('./partials/htmlBoilerplateHead.ejs') %>

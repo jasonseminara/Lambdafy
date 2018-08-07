@@ -15,8 +15,8 @@ module.exports = {
   },
   insertPlaylist(playlist) {
     return db.one(`
-        INSERT INTO playlists (playlist_name, spotify_uri) 
-        VALUES ($/playlist_name/, $/spotify_uri/) 
+        INSERT INTO playlists (playlist_name, spotify_uri, created_by) 
+        VALUES ($/playlist_name/, $/spotify_uri/, $/created_by/) 
         RETURNING *`, playlist);
   },
   updatePlaylist(id, playlistData) {
@@ -24,10 +24,11 @@ module.exports = {
         UPDATE playlists 
         SET 
         playlist_name = $2,
-        spotify_uri = $3 
+        spotify_uri = $3, 
+        created_by = $4
         WHERE playlistId = $1 
         RETURNING *
-        `, [id, playlistData.playlist_name, playlistData.spotify_uri]);
+        `, [id, playlistData.playlist_name, playlistData.spotify_uri, playlistData.created_by]);
   },
   removePlaylist(id) {
     return db.none(`

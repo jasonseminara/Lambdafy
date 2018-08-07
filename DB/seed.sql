@@ -14,11 +14,11 @@ INSERT INTO users ( username, full_name ) VALUES
 ),
 (
     'le7elseven',
-    'Ken Archer'
+    'Ken Z'
 ),
 (
     'autopilot',
-    'Kendrick Gin'
+    'Kenny'
 );
 
 INSERT INTO playlists ( playlist_name, spotify_uri ) VALUES 
