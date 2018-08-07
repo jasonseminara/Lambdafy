@@ -87,18 +87,24 @@ div#rightPane {
 div.formButtons {
     margin: 50px auto 50px auto;
 }
-button a.buttonRUD {
+button.btn {
     width: 300px;
     height: 120px;
-    color: #84bd00;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 32pt;
     margin: 10px auto 10px auto;
     border: 4px solid black;
 }
-button.buttonRUD:hover {
+a.buttonRUD {
+    color: #84bd00;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30pt;
+}
+a.buttonRUD:hover {
     color: black;
-    font-size: 28pt;
+    font-size: 26pt;
+    transition: 0.7s;
+}
+button.btn:hover {
+    color: black;
     border: 10px solid #84bd00;
     transition: 0.7s;
 }
