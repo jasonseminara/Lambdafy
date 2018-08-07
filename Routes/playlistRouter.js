@@ -1,7 +1,7 @@
 // Require Express && Controllers && Views
 const express = require('express');
-const playlistController = require('../Controllers/playlistController');
-const viewController = require('../Controllers/viewController');
+const playlistController = require('../controllers/playlistController');
+const viewController = require('../controllers/viewController');
 
 // Use Router
 const app = express();

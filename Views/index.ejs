@@ -1,19 +1,29 @@
-<%- include('./Partials/htmlBoilerplateHead.ejs') %>
-<h1>Here are the users:</h1>
-<% users.forEach((users) => { %>
-    <h3>User ID: <%= users.id %></h3>
-    <h3>Username: <%= users.username %></h3>
-    <h3>Full Name: <%= users.full_name %></h3>
-    <h3>Account Created: <%= users.created_at %></h3>
-    <h3>Last Login: <%= users.last_on %></h3>
-<% }) %>
-
-<h1>Here are the playlists:</h1>
-<% playlists.forEach((playlists) => { %>
-    <h3>Playlist ID: <%= playlists.id %></h3>
-    <h3>Playlist Name: <%= playlists.playlist_name %></h3>
-    <h3>Spotify Playlist URI: <%= playlists.spotify_uri %></h3>
-    <h3>Created At: <%= playlists.created_at %></h3>
-<% }) %>
-
-<%- include('./Partials/htmlBoilerplateHead.ejs') %>
+<%- include('./partials/htmlBoilerplateHead.ejs') %>
+    <title>λambdafy | Share Your Spotify Playlists - Built by Kendrick Z.</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="icon" href="lambdaFavicon.png" type="image/x-icon">
+</head>
+<body>
+    <div id="mainView">
+        <div id="mainTitle">
+            <center>
+            <h1 class="mainTitle">&lambda;ambdafy</h1>
+            </center>
+        </div>
+        <div id="collectionTitle">
+            <h1 class="leftPaneTitle">Collection of Spotify Playlists</h1>
+        </div>
+        <div id="leftPane">
+            <% playlists.forEach((playlists) => { %>
+                <div class="playlistEntry">
+                    <p class="playlistDetails">#<%= playlists.playlistid %></p>
+                    <p class="playlistDetails">Playlist Name: <%= playlists.playlist_name %></p>
+                    <p class="playlistDetails">Link: <a href="<%= playlists.spotify_uri %>">Follow <%= playlists.playlist_name %> on Spotify</a></p>
+                    <p class="playlistDetails">Created By: <%= playlists.by_user %></p>
+                </div>
+            <% }) %>
+        </div>
+        <div id="rightPane"></div>
+        <div id="footer"></div>
+    </div>
+<%- include('./partials/htmlBoilerplateHead.ejs') %>

@@ -1,4 +1,4 @@
-const playlistModel = require('../Models/playlistModel');
+const playlistModel = require('../models/playlistModel');
 
 module.exports = {
     getIndex(req, res, next) {
