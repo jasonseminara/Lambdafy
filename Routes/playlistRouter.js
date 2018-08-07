@@ -4,7 +4,6 @@ const playlistController = require('../controllers/playlistController');
 const viewController = require('../controllers/viewController');
 
 // Use Router
-const app = express();
 const playlistRouter = express.Router();
 // const playlistRouter = express();
 
