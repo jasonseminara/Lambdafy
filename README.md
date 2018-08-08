@@ -51,10 +51,10 @@
 ##### [Walkthrough Video](https://youtu.be/2G87EWff1bg)
 
 ### Instructions For Running Code
-##### * Clone this repository in your terminal, and run the follow commands:
-#####   1. NPM init
-#####   2. NPM install express morgan pg-promise body-parser method-override ejs
-#####   3. Node server.js
+##### Clone this repository in your terminal, and run the follow commands:
+######  1. NPM init
+######  2. NPM install express morgan pg-promise body-parser method-override ejs
+######  3. Node server.js
 
 ### Resources Used
 ##### In-class examples:
