@@ -11,7 +11,7 @@
 
 
 ### Frameworks Used
-##### JavaScript ES6, Node.js, Express.js, PostgreSQL, EJS, CSS.
+##### JavaScript ES6, Node.js, Express.js, PostgreSQL, EJS, CSS, HTML.
 
 ### Middleware Dependencies Used
 ##### Morgan, PG-Promise, Body-Parser, Nodemon, Method-Override
