@@ -9,23 +9,23 @@ const playlistRouter = express.Router();
 
 // Send messages
 const showJSON = (req, res) => {
-    res.json(res.locals.data);
+  res.json(res.locals.data);
 };
 
 const redirect = (req, res) => {
-    res.redirect('http://localhost:3000/playlists');
+  res.redirect('http://localhost:3000/playlists');
 };
 
 // playlistRouter.get('/', (req, res) => {
-//     res.send('Hello World!');    
+//     res.send('Hello World!');
 // });
 
 // Delete
 playlistRouter.route('/:id/delete')
-.get(
+  .get(
     playlistController.destroyPlaylist,
     viewController.deleteMe,
-);
+  );
 // playlistRouter.route('/remove')
 // .get(
 //     playlistController.destroyPlaylist,
@@ -34,11 +34,11 @@ playlistRouter.route('/:id/delete')
 
 // Update
 playlistRouter.route('/:id/edit')
-.get(
+  .get(
     playlistController.getOne,
     viewController.update,
     showJSON,
-);
+  );
 // playlistRouter.route('/edit')
 // .get(
 //     playlistController.updatePlaylist,
@@ -48,37 +48,37 @@ playlistRouter.route('/:id/edit')
 
 // Create
 playlistRouter.route('/new')
-.get(
+  .get(
     playlistController.getIndex,
     viewController.create,
     showJSON,
-);
+  );
 
 // Item
 playlistRouter.route('/:id')
-.get(
+  .get(
     playlistController.getOne,
     viewController.showOne,
     showJSON,
-)
-.put(
+  )
+  .put(
     playlistController.updatePlaylist,
     viewController.update,
     showJSON,
-)
-.delete(playlistController.destroyPlaylist);
+  )
+  .delete(playlistController.destroyPlaylist);
 
 // Collection
 playlistRouter.route('/')
-.get(
+  .get(
     playlistController.getIndex,
     viewController.showAll,
     showJSON,
-)
-.post(
+  )
+  .post(
     playlistController.createPlaylist,
     viewController.create,
     showJSON,
-);
+  );
 
 module.exports = playlistRouter;
