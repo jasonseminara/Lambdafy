@@ -30,7 +30,7 @@ app.use('/lambdafy', playlistRouter);
 
 // Listen on PORT
 app.listen(PORT, () => {
-    console.log(`Listening on ${PORT} in ${app.get('env')} mode.`);
+  console.log(`Listening on ${PORT} in ${app.get('env')} mode.`);
 });
 
 module.exports = app;
